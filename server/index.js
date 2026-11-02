@@ -80,6 +80,17 @@ const server = useHttps
   ? https.createServer({ key: readFileSync(join(CERTS, 'key.pem')), cert: readFileSync(join(CERTS, 'cert.pem')) }, handler)
   : http.createServer(handler)
 
+server.on('error', (err) => {
+  if (err.code === 'EADDRINUSE') {
+    console.error(`\nEl puerto ${PORT} ya está en uso (¿otro servidor o un contenedor Docker?).`)
+    console.error(`  Ver quién lo usa:   lsof -i :${PORT}`)
+    console.error('  Parar Docker:       docker stop $(docker ps -q)')
+    console.error(`  U otro puerto:      PORT=3001 pnpm start\n`)
+    process.exit(1)
+  }
+  throw err
+})
+
 server.listen(PORT, '0.0.0.0', () => {
   const proto = useHttps ? 'https' : 'http'
   const ips = Object.values(networkInterfaces())
@@ -92,3 +103,12 @@ server.listen(PORT, '0.0.0.0', () => {
   if (!useHttps) console.log('\n  Sin certificado: el modo offline solo funciona en localhost. Ejecuta `pnpm cert` para HTTPS.')
   console.log('\n  Las peticiones a /api/* se muestran aquí abajo:\n')
 })
+
+// Dentro de Docker, Node es el proceso principal (PID 1) e ignora Ctrl+C si no lo manejamos.
+for (const signal of ['SIGINT', 'SIGTERM']) {
+  process.on(signal, () => {
+    console.log('\nCerrando servidor...')
+    server.close(() => process.exit(0))
+    setTimeout(() => process.exit(0), 1000).unref()
+  })
+}

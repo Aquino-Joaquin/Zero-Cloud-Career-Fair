@@ -1,0 +1,60 @@
+# Green Metrics Tool: energía (Wh) de Traditional vs. Zero-Cloud con el mismo escenario.
+# Cada fase del "flow" se mide por separado. Incluye el consumo del servidor local
+# (contenedor zero-cloud) y del navegador (contenedor de Playwright).
+# Escenario: 50 visitantes × (1 listado + 20 perfiles) en cada modo.
+
+name: Zero-Cloud Career Fair — Traditional vs. Zero-Cloud
+author: Zero-Cloud team
+description: >
+  Same user scenario in two modes. Traditional fetches data from the server on every view;
+  Zero-Cloud downloads the dataset once per visitor (IndexedDB) and reads locally afterwards.
+
+compose-file: !include-gmt-helper gmt-playwright-v1.0.0.yml
+
+services:
+  zero-cloud:
+    build: .
+    ports:
+      - 3000:3000
+
+flow:
+  - name: Open app
+    container: gmt-playwright-nodejs
+    commands:
+      - type: console
+        command: sleep 5
+        note: Wait for the local server to start
+      - type: playwright
+        command: await page.goto("http://zero-cloud:3000/")
+      - type: playwright
+        command: await page.waitForFunction(() => window.zeroCloud !== undefined)
+
+  - name: Idle baseline
+    container: gmt-playwright-nodejs
+    commands:
+      - type: console
+        command: sleep 10
+
+  - name: Traditional — 50 visitors × 21 views
+    container: gmt-playwright-nodejs
+    commands:
+      - type: playwright
+        command: await page.evaluate(() => window.zeroCloud.runScenario('traditional', 20, 50))
+
+  - name: Idle between modes
+    container: gmt-playwright-nodejs
+    commands:
+      - type: console
+        command: sleep 10
+
+  - name: Zero-Cloud — 50 visitors × 21 views
+    container: gmt-playwright-nodejs
+    commands:
+      - type: playwright
+        command: await page.evaluate(() => window.zeroCloud.runScenario('zero-cloud', 20, 50))
+
+  - name: Record app metrics
+    container: gmt-playwright-nodejs
+    commands:
+      - type: playwright
+        command: console.log(JSON.stringify(await page.evaluate(() => window.zeroCloud.getMetrics())))
