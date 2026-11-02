@@ -1,0 +1,148 @@
+{
+  "version": 1,
+  "updatedAt": "2026-11-02T09:00:00Z",
+  "companies": [
+    {
+      "id": "greengrid",
+      "name": "GreenGrid Energy",
+      "industry": "Renewable Energy",
+      "description": "GreenGrid builds software that balances solar and wind production across regional power grids, helping utilities cut waste and avoid fossil-fuel backup plants.",
+      "location": "Istanbul, Türkiye",
+      "website": "https://greengrid.example.com",
+      "booth": "A1",
+      "color": "#16a34a",
+      "updatedAt": "2026-11-02T09:00:00Z",
+      "jobs": [
+        {
+          "id": "greengrid-frontend",
+          "title": "Frontend Developer",
+          "type": "Full-time",
+          "modality": "Hybrid",
+          "location": "Istanbul",
+          "description": "Build dashboards that let grid operators monitor energy production in real time.",
+          "requirements": ["React and TypeScript", "Experience with data visualization", "English B2 or higher"],
+          "updatedAt": "2026-11-02T09:00:00Z"
+        },
+        {
+          "id": "greengrid-data-intern",
+          "title": "Data Analyst Intern",
+          "type": "Internship",
+          "modality": "On-site",
+          "location": "Istanbul",
+          "description": "Analyze weather and consumption data to improve our production forecasts.",
+          "requirements": ["Python or SQL", "Basic statistics", "Final-year student"],
+          "updatedAt": "2026-11-02T09:00:00Z"
+        }
+      ]
+    },
+    {
+      "id": "ecoterra",
+      "name": "Ecoterra Logistics",
+      "industry": "Logistics & Transport",
+      "description": "Ecoterra plans low-emission delivery routes for retailers, combining electric vans and cargo bikes for last-mile delivery in dense cities.",
+      "location": "Ankara, Türkiye",
+      "website": "https://ecoterra.example.com",
+      "booth": "A2",
+      "color": "#0d9488",
+      "updatedAt": "2026-11-02T09:00:00Z",
+      "jobs": [
+        {
+          "id": "ecoterra-backend",
+          "title": "Backend Engineer (Node.js)",
+          "type": "Full-time",
+          "modality": "Remote",
+          "location": "Türkiye",
+          "description": "Design APIs for our route-optimization engine used by more than 200 delivery drivers.",
+          "requirements": ["Node.js and REST APIs", "PostgreSQL", "2+ years of experience"],
+          "updatedAt": "2026-11-02T09:00:00Z"
+        },
+        {
+          "id": "ecoterra-ops-intern",
+          "title": "Operations Intern",
+          "type": "Internship",
+          "modality": "On-site",
+          "location": "Ankara",
+          "description": "Support the operations team measuring CO₂ savings per delivery route.",
+          "requirements": ["Industrial engineering or similar", "Excel", "Good communication skills"],
+          "updatedAt": "2026-11-02T09:00:00Z"
+        }
+      ]
+    },
+    {
+      "id": "pixelforge",
+      "name": "Pixelforge Studio",
+      "industry": "Design & Digital Products",
+      "description": "Pixelforge is a product studio that designs and builds lightweight, accessible web apps for NGOs and public institutions.",
+      "location": "Izmir, Türkiye",
+      "website": "https://pixelforge.example.com",
+      "booth": "B1",
+      "color": "#7c3aed",
+      "updatedAt": "2026-11-02T09:00:00Z",
+      "jobs": [
+        {
+          "id": "pixelforge-uxui",
+          "title": "UX/UI Designer",
+          "type": "Full-time",
+          "modality": "Hybrid",
+          "location": "Izmir",
+          "description": "Design accessible interfaces and run usability tests with real users.",
+          "requirements": ["Figma", "Portfolio with case studies", "Knowledge of WCAG"],
+          "updatedAt": "2026-11-02T09:00:00Z"
+        },
+        {
+          "id": "pixelforge-web-parttime",
+          "title": "Junior Web Developer",
+          "type": "Part-time",
+          "modality": "Remote",
+          "location": "Türkiye",
+          "description": "Help build fast, low-bandwidth websites for our non-profit clients.",
+          "requirements": ["HTML, CSS and JavaScript", "Interest in web performance"],
+          "updatedAt": "2026-11-02T09:00:00Z"
+        },
+        {
+          "id": "pixelforge-qa-intern",
+          "title": "QA Intern",
+          "type": "Internship",
+          "modality": "Remote",
+          "location": "Türkiye",
+          "description": "Write test plans and automate browser tests for our web apps.",
+          "requirements": ["Attention to detail", "Basic JavaScript", "Curiosity"],
+          "updatedAt": "2026-11-02T09:00:00Z"
+        }
+      ]
+    },
+    {
+      "id": "medalink",
+      "name": "MedaLink Health",
+      "industry": "Health Tech",
+      "description": "MedaLink connects rural clinics with specialists through an app designed to keep working with slow or intermittent Internet connections.",
+      "location": "Istanbul, Türkiye",
+      "website": "https://medalink.example.com",
+      "booth": "B2",
+      "color": "#dc2626",
+      "updatedAt": "2026-11-02T09:00:00Z",
+      "jobs": [
+        {
+          "id": "medalink-mobile",
+          "title": "Mobile Developer",
+          "type": "Full-time",
+          "modality": "On-site",
+          "location": "Istanbul",
+          "description": "Develop offline-first features for our clinic app used in low-connectivity areas.",
+          "requirements": ["React Native or Flutter", "Experience with local storage and sync", "English B2"],
+          "updatedAt": "2026-11-02T09:00:00Z"
+        },
+        {
+          "id": "medalink-support",
+          "title": "Technical Support Specialist",
+          "type": "Full-time",
+          "modality": "Hybrid",
+          "location": "Istanbul",
+          "description": "Onboard new clinics and solve technical issues with our partners.",
+          "requirements": ["Strong communication skills", "Turkish and English", "Basic networking knowledge"],
+          "updatedAt": "2026-11-02T09:00:00Z"
+        }
+      ]
+    }
+  ]
+}
